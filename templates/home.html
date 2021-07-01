@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Shop</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Shop</a>
+    </nav>
+
+    {% for item in items %}
+      <div class="columns">
+        <ul class="products">
+          <li class="header">{{ item.name }}</li>
+          <a href="{{ item.html }}"><li><img src="{{ item.image }}"></li></a>
+          <li class="orange">Tk. {{ (item.price * 84.82)|round(2, 'floor') }}</li>
+          <li class="black">
+            <button class="btn btn-outline btn-success">Purchase this items</button>
+          </li>
+        </ul>
+      </div> 
+    {% endfor %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  
+  </body>
+
+  <style>
+    body{
+      background-color: #ffffff;
+      color: black;
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    .columns {
+      float: left;
+      width: 33.3%;
+      padding: 8px;
+    }
+
+    .products {
+      list-style-type: none;
+      border: 1px solid #eee;
+      margin: 0;
+      padding: 0;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+    }
+
+    .products:hover {
+      box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+    }
+
+    .products .header {
+      background-color: #111;
+      color: white;
+      font-size: 20px;
+      height: 100px;
+    }
+
+    .products li {
+      border-bottom: 1px solid #eee;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .products .orange {
+      background-color: rgb(214, 97, 29);
+      font-size: 30px;
+      font-style: bold;
+      text-align: center;
+    }
+
+    .products .black{
+      background-color: rgb(19, 19, 19);
+    }
+
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 290px;
+      align-items: center;
+      height: 250px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .columns {
+        width: 100%;
+      }
+    }
+  </style>
+</html>
